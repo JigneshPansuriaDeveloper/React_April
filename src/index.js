@@ -1,11 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import Home from '../src/components/Home'
+import Header from './components/Header'
 
 
 ReactDOM.render(
-  <React.StrictMode>
-    <Home />
-  </React.StrictMode>,
+  
+    <Header />
+  ,
   document.getElementById('root')
 );
