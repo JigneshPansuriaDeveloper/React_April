@@ -1,22 +1,36 @@
-import React,{Component} from 'react';
-import JSON from './../db.json';
+import React from 'react';
+//import JSON from './../db.json';
 
-class List extends Component {
+
+
+ const List =(props)=>{
+    const data=props.json.map((item,i)=><div>{item.title}</div>)
+    return(
+        <div> 
+        {data}
+        </div>
+    )
+}
+export default List;
+
+
+
+
+// class List extends Component {
    
-    render(){
-        return(
+//     render(){
+//         return(
            
-        JSON.map((item,i)=>{
-           return(<div key={item.id}>{item.title}</div>)
+//         JSON.map((item,i)=>{
+//            return(<div key={item.id}>{item.title}</div>)
      
-                })
+//                 })
             
-            );  
+//             );  
              
         
        
 
-    }
-}
+//     }
+// }
 
-export default List;
