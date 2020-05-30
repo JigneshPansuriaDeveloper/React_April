@@ -1,35 +1,32 @@
 import React, { Component } from 'react';
-import JSON from '../db.json';
-import List from '../components/List';
+
 class Header extends Component{
     constructor(props){
         super(props);
         this.state={
-            search:"Enter your text here",
-            json:JSON
+            title:"React state App",
+            keyword:"User text here",
+            year:this.props.year
         }
     }
-    handleChange=(e)=>{ 
-        const data=this.state.json.filter(
-            (item)=> item.title.includes(e.target.value)
-        )
-        this.setState({search:e.target.value,json:data})
-    }
+    inputChange=(e)=>{
+        this.setState({keyword:e.target.value})
+        this.props.userText(e.target.value)
 
+    }
     render(){
         return(
-        <div>
             <header>
-                <div> Logo
-                </div>
+                <div className="logo">
+                {this.state.title}-{this.state.year}
                 <center>
-                    <input type="text" onChange={this.handleChange}  />
-                 <p>{this.state.search}</p>
+                    <input onChange={this.inputChange}/>
+                    <p>{this.state.keyword}</p>
                 </center>
+                </div>
             </header>
-            <List  json={this.state.json}/>
-        </div>
         )
-        }
     }
+}
+
 export default Header;
